@@ -1,4 +1,4 @@
-name: Playwright Test
+name: Playwright Tests
 
 on:
   push:
@@ -33,3 +33,18 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: playwright-report
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-pages-artifact@v1
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
