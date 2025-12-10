@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright Test
 
 on:
   push:
@@ -8,8 +8,8 @@ on:
 
 jobs:
   test:
-    timeout-minutes: 10
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout repository
@@ -29,7 +29,8 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test --reporter=html
 
-      - name: Upload HTML report for GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload Playwright HTML report as CI artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: playwright-report
           path: playwright-report
