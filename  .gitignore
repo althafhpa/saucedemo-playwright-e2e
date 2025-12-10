@@ -3,7 +3,9 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
+
+# Do NOT ignore package-lock.json (important for reproducible builds)
+# package-lock.json
 
 # Playwright
 playwright-report/
@@ -19,6 +21,6 @@ trace/
 .env
 .env.local
 
-# IDE files
-assets/.DS_Store
-
+# IDE / Editor
+.vscode/
+.idea/
