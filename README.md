@@ -35,7 +35,7 @@ The Playwright script performs the following:
 - Confirms the order success  
 
 Test file location:  
-tests/purchase.spec.ts
+[tests/purchase.spec.ts](tests/purchase.spec.ts)
 
 ---
 
@@ -65,7 +65,7 @@ GitHub Actions runs the automated test on:
 - Manual workflow triggers  
 
 Workflow file:  
-.github/workflows/playwright.yml
+[.github/workflows/playwright.yml](.github/workflows/playwright.yml)
 
 The CI pipeline:
 1. Sets up Node.js  
@@ -83,9 +83,9 @@ After any CI run:
 1. Open GitHub Actions  
 2. Open the latest workflow run  
 3. Scroll to the Artifacts section  
-4. Download the artifact named: **playwright-report**  
+4. Download the artifact named **playwright-report**  
 5. Extract the ZIP file  
-6. Open the report file named: **index.html**  
+6. Open the report file named **index.html**  
 
 The report includes steps, logs, and failure snapshots (if any).
 
