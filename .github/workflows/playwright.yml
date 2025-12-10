@@ -28,8 +28,3 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test --reporter=html
-
-      - name: Upload HTML report for GitHub Pages
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: playwright-report
