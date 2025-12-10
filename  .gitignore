@@ -18,3 +18,7 @@ trace/
 # Env files
 .env
 .env.local
+
+# IDE files
+assets/.DS_Store
+
