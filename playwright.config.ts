@@ -5,7 +5,7 @@ export default defineConfig({
   retries: 1,      // Retry once on failure, useful in CI
 
   use: {
-    headless: true,
+    headless: false,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure', // Gives trace viewer for failed tests
