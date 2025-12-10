@@ -17,6 +17,16 @@ This work was developed as part of a technical assignment.
 
 ---
 
+## Visual Preview
+
+### ✔ Successful Order Completion
+![Order Success Screenshot](https://github.com/althafhpa/saucedemo-playwright-e2e/blob/main/assets/test-success.png?raw=true)
+
+### ✔ Sample Playwright HTML Report
+![HTML Report Screenshot](https://github.com/althafhpa/saucedemo-playwright-e2e/blob/main/assets/html-report.png?raw=true)
+
+---
+
 ## Test Scenario Documentation
 
 Complete scenario documentation, including verification points and assumptions, is available in:
