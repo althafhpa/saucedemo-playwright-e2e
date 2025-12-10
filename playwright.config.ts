@@ -1,47 +1,39 @@
 import { defineConfig } from '@playwright/test';
 
-/**
- * Playwright Configuration
- * ------------------------
- * This file defines global settings for all Playwright tests
- * including timeouts, retries, browser settings, reporters,
- * and base URLs. These settings are optimized for both:
- *  - Local development (headed mode)
- *  - CI environments such as GitHub Actions (auto headless)
- */
-
 export default defineConfig({
   // Global test timeout (per test)
-  timeout: 30_000, // 30 seconds is standard for E2E flows
-
-  // Retry failing tests once (useful in CI to reduce flakiness)
-  retries: 1,
+  timeout: 30000, // 30 seconds
+  retries: 1,     // Retry once on failure, useful for CI stability
 
   use: {
     /**
-     * Browser Settings
-     * ----------------
-     * - headless: false for local debugging (CI automatically overrides to headless)
-     * - baseURL: simplifies page.goto() calls
+     * Headless Mode Configuration
+     *
+     * - In GitHub Actions (CI=true), Playwright must run headless
+     *   because there is no X server available. Running headed would
+     *   cause failures such as:
+     *
+     *   "Looks like you launched a headed browser without having an XServer running."
+     *
+     * - Locally (CI undefined), the browser runs in headed mode,
+     *   allowing you to visually observe the test execution.
      */
-    headless: false,
+    headless: process.env.CI ? true : false,
 
-    // Capture artifacts only on failures (keeps report clean)
+    // Capture debugging artifacts only when tests fail
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
 
-    // Global base URL for all tests
+    // Base URL for cleaner test code
     baseURL: 'https://www.saucedemo.com',
   },
 
   /**
-   * Reporter
-   * --------
-   * Generate an HTML report for each test run.
-   * (CI will upload this as an artifact)
+   * Reporter Configuration
+   *
+   * Generates an HTML report after the test run.
+   * In CI, the report gets uploaded as a build artifact.
    */
-  reporter: [
-    ['html', { open: 'never' }] // Do not auto-open locally
-  ],
+  reporter: [['html', { open: 'never' }]],
 });
